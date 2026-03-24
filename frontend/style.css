@@ -25,15 +25,38 @@ body {
     padding:5px;
 }
 
+/* CONTENEDOR LOGIN (CUADRO) */
 .right {
-    width:350px;
-    margin:auto;
+    width:360px;
+    margin: auto;
+    margin-right: 120px; /* 👈 lo mueve hacia la izquierda */
+
+    background:#111;
+    padding:30px;
+    border-radius:12px;
+
+    box-shadow: 0 0 20px rgba(0,0,0,0.6);
 }
 
-input, button {
+/* INPUTS PRO */
+input {
     width:100%;
-    padding:12px;
+    height:45px;
+    padding:10px;
     margin:10px 0;
+
+    background:#0b0f14;
+    border:1px solid #333;
+    border-radius:6px;
+
+    color:white;
+    font-size:14px;
+}
+
+/* BOTONES */
+button {
+    height:45px;
+    margin-top:10px;
 }
 
 button {
@@ -79,4 +102,149 @@ button {
     display:inline-block;
     width:40px;
     margin:5px;
+}
+
+/* 🔥 NAVBAR */
+.navbar {
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:20px 40px;
+    background:#0b0f14;
+    border-bottom:1px solid #222;
+}
+
+.logo {
+    font-weight:bold;
+    font-size:20px;
+}
+
+.menu-nav a {
+    margin-left:20px;
+    text-decoration:none;
+    color:#ccc;
+    transition:0.3s;
+}
+
+.menu-nav a:hover {
+    color:white;
+}
+
+/* BOTONES EN FILA */
+.btn-group {
+    display:flex;
+    gap:10px;
+}
+
+/* BOTONES PRO MEJORADOS */
+.btn {
+    flex:1;
+    height:45px; /* 👈 tamaño estándar como inputs */
+    
+    background:#2a2f36; /* gris elegante */
+    color:#fff;
+
+    border:1px solid #3a3f47;
+    border-radius:6px;
+
+    font-size:14px;
+    cursor:pointer;
+
+    transition: all 0.3s ease;
+}
+
+/* BOTÓN INGRESAR (ligeramente diferente) */
+.primary {
+    background:#dcdcdc;
+    color:#000;
+}
+
+.primary:hover {
+    background:#c4c4c4;
+    transform:scale(1.03);
+}
+
+/* BOTÓN CREAR USUARIO */
+.secondary {
+    background:#2a2f36;
+    color:white;
+    border:1px solid #3a3f47;
+}
+
+.secondary:hover {
+    background:#3a3f47;
+    transform:scale(1.03);
+}
+
+/* NAVBAR OSCURO */
+.navbar {
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:20px 40px;
+    background:#0b0f14;
+    border-bottom:1px solid #1a1a1a;
+}
+
+.logo {
+    color:white;
+    font-weight:bold;
+}
+
+.menu-nav a {
+    margin-left:20px;
+    color:#aaa;
+    text-decoration:none;
+}
+
+.menu-nav a:hover {
+    color:white;
+}
+
+/* BOTONES EN FILA */
+.btn-group {
+    display:flex;
+    gap:10px;
+}
+
+/* BOTONES MEJORADOS */
+.btn {
+    flex:1;
+    padding:12px;
+    border:none;
+    cursor:pointer;
+    border-radius:6px;
+}
+
+/* INGRESAR */
+.primary {
+    background:white;
+    color:black;
+}
+
+
+
+/* CREAR USUARIO */
+.secondary {
+    background:#1a1a1a;
+    color:white;
+    border:1px solid #333;
+}
+
+.btn {
+    all: unset;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    flex:1;
+    height:45px;
+
+    background:#2a2f36;
+    color:white;
+
+    border:1px solid #3a3f47;
+    border-radius:6px;
+
+    cursor:pointer;
 }
