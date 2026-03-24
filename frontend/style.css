@@ -53,18 +53,7 @@ input {
     font-size:14px;
 }
 
-/* BOTONES */
-button {
-    height:45px;
-    margin-top:10px;
-}
 
-button {
-    background:white;
-    color:black;
-    border:none;
-    cursor:pointer;
-}
 
 /* DASHBOARD */
 .dashboard {
@@ -130,51 +119,6 @@ button {
     color:white;
 }
 
-/* BOTONES EN FILA */
-.btn-group {
-    display:flex;
-    gap:10px;
-}
-
-/* BOTONES PRO MEJORADOS */
-.btn {
-    flex:1;
-    height:45px; /* 👈 tamaño estándar como inputs */
-    
-    background:#2a2f36; /* gris elegante */
-    color:#fff;
-
-    border:1px solid #3a3f47;
-    border-radius:6px;
-
-    font-size:14px;
-    cursor:pointer;
-
-    transition: all 0.3s ease;
-}
-
-/* BOTÓN INGRESAR (ligeramente diferente) */
-.primary {
-    background:#dcdcdc;
-    color:#000;
-}
-
-.primary:hover {
-    background:#c4c4c4;
-    transform:scale(1.03);
-}
-
-/* BOTÓN CREAR USUARIO */
-.secondary {
-    background:#2a2f36;
-    color:white;
-    border:1px solid #3a3f47;
-}
-
-.secondary:hover {
-    background:#3a3f47;
-    transform:scale(1.03);
-}
 
 /* NAVBAR OSCURO */
 .navbar {
@@ -201,20 +145,7 @@ button {
     color:white;
 }
 
-/* BOTONES EN FILA */
-.btn-group {
-    display:flex;
-    gap:10px;
-}
 
-/* BOTONES MEJORADOS */
-.btn {
-    flex:1;
-    padding:12px;
-    border:none;
-    cursor:pointer;
-    border-radius:6px;
-}
 
 /* INGRESAR */
 .primary {
@@ -228,7 +159,7 @@ button {
 .secondary {
     background:#1a1a1a;
     color:white;
-    border:1px solid #333;
+    border:1px solid #7d7979;
 }
 
 .btn {
@@ -247,4 +178,115 @@ button {
     border-radius:6px;
 
     cursor:pointer;
+}
+
+/* CENTRAR REGISTRO */
+.center-container {
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    height:calc(100vh - 80px);
+}
+
+/* CAJA FORMULARIO */
+.form-box {
+    width:350px;
+    background:#111;
+    padding:30px;
+    border-radius:12px;
+
+    box-shadow:0 0 20px rgba(0,0,0,0.6);
+}
+/* 🔥 BOTONES GLOBALES (REUTILIZABLES) */
+.btn-custom {
+    display:inline-block;
+    width:48%;
+    height:45px;
+
+    background:#2a2f36;
+    color:white;
+
+    border:1px solid #3a3f47;
+    border-radius:6px;
+
+    font-size:14px;
+    cursor:pointer;
+
+    transition: all 0.3s ease;
+}
+
+/* HOVER */
+.btn-custom:hover {
+    background:#3a3f47;
+    transform:scale(1.02);
+}
+
+/* VARIANTE PRINCIPAL */
+.btn-primary {
+    background:#dcdcdc;
+    color:black;
+}
+
+.btn-primary:hover {
+    background:#c4c4c4;
+}
+
+/* CAPA DE IMAGEN DE FONDO */
+body::before {
+    content: "";
+    position: fixed;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+
+    background: url('img/centroacond.jpg') no-repeat center center/cover;
+
+    opacity:0.25; /* 👈 controla intensidad */
+    z-index:-1;
+}
+
+/* TARJETA DE PERFIL */
+.profile-card {
+    background:#111;
+    padding:25px;
+    border-radius:12px;
+    margin-bottom:20px;
+
+    box-shadow:0 0 15px rgba(0,0,0,0.6);
+}
+
+/* GRID DE DATOS */
+.profile-grid {
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:15px;
+}
+
+/* ITEM */
+.profile-item {
+    background:#1a1a1a;
+    padding:10px;
+    border-radius:6px;
+}
+
+/* TITULO */
+.profile-item span {
+    display:block;
+    font-size:12px;
+    color:#aaa;
+}
+
+/* VALOR */
+.profile-item strong {
+    font-size:14px;
+}
+
+/* ESTADO */
+.activo {
+    color:#00ff88;
+}
+
+.inactivo {
+    color:red;
 }
