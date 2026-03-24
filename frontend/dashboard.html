@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Dashboard</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<h1>IMMORTAL GYM</h1>
+
+<!-- 🔥 DATOS ARRIBA -->
+<div class="top-info" id="info"></div>
+
+<div class="dashboard">
+
+<div class="menu">
+    <button onclick="showTab('datos')">Datos</button>
+    <button onclick="showTab('planes')">Planes</button>
+    <button onclick="showTab('calendario')">Calendario</button>
+</div>
+
+<div class="content">
+
+<!-- DATOS -->
+<div id="datos" class="tab">
+
+    <h2>Mis Datos</h2>
+
+    <button onclick="mostrarFormulario()">Actualizar datos</button>
+
+    <div id="formActualizar" style="display:none;">
+        <input id="telefonoEdit" placeholder="Nuevo teléfono">
+        <input id="direccionEdit" placeholder="Nueva dirección">
+        <button onclick="actualizar()">Guardar</button>
+    </div>
+
+</div>
+
+<!-- PLANES -->
+<div id="planes" class="tab" style="display:none">
+    <h2>Planes</h2>
+
+    <button onclick="verPlan('normal')">Plan Normal</button>
+    <button onclick="verPlan('bimestral')">Plan Bimestral</button>
+    <button onclick="verPlan('semestral')">Plan Semestral</button>
+</div>
+
+<!-- CALENDARIO -->
+<div id="calendario" class="tab" style="display:none">
+    <h2>Calendario</h2>
+
+    <button onclick="cambiarMes(-1)">⬅</button>
+    <button onclick="cambiarMes(1)">➡</button>
+
+    <div id="calendar"></div>
+</div>
+
+</div>
+</div>
+
+<script src="app.js"></script>
+</body>
+</html>

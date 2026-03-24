@@ -1,0 +1,82 @@
+body {
+    margin:0;
+    font-family:Arial;
+    background:#0b0f14;
+    color:white;
+}
+
+/* LOGIN */
+.container {
+    display:flex;
+    height:100vh;
+}
+
+.left {
+    flex:1;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    padding:50px;
+}
+
+.left span {
+    background:white;
+    color:black;
+    padding:5px;
+}
+
+.right {
+    width:350px;
+    margin:auto;
+}
+
+input, button {
+    width:100%;
+    padding:12px;
+    margin:10px 0;
+}
+
+button {
+    background:white;
+    color:black;
+    border:none;
+    cursor:pointer;
+}
+
+/* DASHBOARD */
+.dashboard {
+    display:flex;
+}
+
+.menu {
+    width:200px;
+    background:#111;
+    padding:20px;
+}
+
+.content {
+    flex:1;
+    padding:20px;
+}
+
+.tab {
+    background:#222;
+    padding:20px;
+}
+
+.top-info {
+    background:#222;
+    padding:20px;
+    margin:10px;
+}
+
+.plan-box {
+    text-align:center;
+    margin-top:100px;
+}
+
+#calendar div{
+    display:inline-block;
+    width:40px;
+    margin:5px;
+}
