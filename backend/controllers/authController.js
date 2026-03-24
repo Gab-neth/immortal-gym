@@ -1,39 +1,34 @@
-const { getUserByCedula, createUser } = require('../models/usuarioModel');
+const db = require('../config/db');
 
-// LOGIN
-exports.login = (req, res) => {
-    const { cedula, password } = req.body;
-
-    getUserByCedula(cedula, (err, results) => {
-        if (err) return res.status(500).json(err);
-
-        if (results.length === 0) {
-            return res.status(401).json({ msg: 'Usuario no encontrado' });
-        }
-
-        const user = results[0];
-
-        if (user.password !== password) {
-            return res.status(401).json({ msg: 'Contraseña incorrecta' });
-        }
-
-        res.json({ msg: 'ok', user });
-    });
+// OBTENER USUARIO
+const getUserByCedula = (cedula, callback) => {
+    db.query(
+        'SELECT * FROM usuarios WHERE CedulaUsuario = ? LIMIT 1',
+        [cedula],
+        callback
+    );
 };
 
-// REGISTRO
-exports.register = (req, res) => {
-    const { nombre, cedula, telefono, direccion } = req.body;
+// CREAR USUARIO
+const createUser = (user, callback) => {
+    db.query(
+        'INSERT INTO usuarios (NombreCompleto, CedulaUsuario, password, Telefono, Direccion, Estado) VALUES (?, ?, ?, ?, ?, 0)',
+        [
+            user.nombre,
+            user.cedula,
+            user.password,
+            user.telefono,
+            user.direccion
+        ],
+        (err, result) => {
+            if (err){
+                console.error("ERROR SQL:", err);
+                return callback(err);
+            }
 
-    createUser({
-        nombre,
-        cedula,
-        password: cedula,
-        telefono,
-        direccion
-    }, (err) => {
-        if (err) return res.status(500).json(err);
-
-        res.json({ msg: 'Usuario creado' });
-    });
+            callback(null, result);
+        }
+    );
 };
+
+module.exports = { getUserByCedula, createUser };

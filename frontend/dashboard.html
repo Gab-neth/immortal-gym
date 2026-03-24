@@ -10,14 +10,13 @@
 <h1>IMMORTAL GYM</h1>
 
 <!-- 🔥 DATOS ARRIBA -->
-<div class="top-info" id="info"></div>
 
 <div class="dashboard">
 
 <div class="menu">
-    <button onclick="showTab('datos')">Datos</button>
-    <button onclick="showTab('planes')">Planes</button>
-    <button onclick="showTab('calendario')">Calendario</button>
+    <button class="btn-menu btn-primary" onclick="showTab('datos')">Mis Datos</button>
+    <button class="btn-menu" onclick="showTab('planes')">Planes</button>
+    <button class="btn-menu" onclick="showTab('calendario')">Calendario</button>
 </div>
 
 <div class="content">
@@ -25,14 +24,18 @@
 <!-- DATOS -->
 <div id="datos" class="tab">
 
-    <h2>Mis Datos</h2>
+    <h2>Mi Perfil</h2>
 
-    <button onclick="mostrarFormulario()">Actualizar datos</button>
+    <div class="profile-card" id="info"></div>
 
-    <div id="formActualizar" style="display:none;">
+    <button class="btn-custom btn-primary" onclick="mostrarFormulario()">
+        Actualizar datos
+    </button>
+
+    <div id="formActualizar" style="display:none; margin-top:15px;">
         <input id="telefonoEdit" placeholder="Nuevo teléfono">
         <input id="direccionEdit" placeholder="Nueva dirección">
-        <button onclick="actualizar()">Guardar</button>
+        <button class="btn-custom" onclick="actualizar()">Guardar</button>
     </div>
 
 </div>
@@ -41,17 +44,17 @@
 <div id="planes" class="tab" style="display:none">
     <h2>Planes</h2>
 
-    <button onclick="verPlan('normal')">Plan Normal</button>
-    <button onclick="verPlan('bimestral')">Plan Bimestral</button>
-    <button onclick="verPlan('semestral')">Plan Semestral</button>
+    <button class="btn-custom" onclick="verPlan('normal')">Plan Normal</button>
+    <button class="btn-custom" onclick="verPlan('bimestral')">Plan Bimestral</button>
+    <button class="btn-custom" onclick="verPlan('semestral')">Plan Semestral</button>
 </div>
 
 <!-- CALENDARIO -->
 <div id="calendario" class="tab" style="display:none">
     <h2>Calendario</h2>
 
-    <button onclick="cambiarMes(-1)">⬅</button>
-    <button onclick="cambiarMes(1)">➡</button>
+    <button class="btn-custom" onclick="cambiarMes(-1)">⬅</button>
+    <button class="btn-custom" onclick="cambiarMes(1)">➡</button>
 
     <div id="calendar"></div>
 </div>

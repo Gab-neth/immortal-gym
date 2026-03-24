@@ -1,9 +1,9 @@
 const express = require('express');
 const router = express.Router();
 const db = require('../config/db');
-console.log("RUTAS CARGADAS 🔥");
+console.log("RUTAS CARGADAS ");
 router.get('/test', (req, res) => {
-    res.send("FUNCIONA 🔥");
+    res.send("FUNCIONA ");
 });
 
 const { login, register } = require('../controllers/authController');
@@ -12,7 +12,33 @@ const { login, register } = require('../controllers/authController');
 router.post('/login', login);
 
 // REGISTRO
-router.post('/register', register);
+router.post('/register', (req, res) => {
+    const { nombre, cedula, telefono, direccion, password } = req.body;
+
+    db.query(
+        'INSERT INTO usuarios (NombreCompleto, CedulaUsuario, Telefono, Direccion, password, Estado) VALUES (?, ?, ?, ?, ?, 0)',
+        [nombre, cedula, telefono, direccion, password],
+        (err) => {
+            if (err) return res.status(500).json(err);
+
+            res.json({ msg: 'Usuario creado (INACTIVO)' });
+        }
+    );
+});
+
+router.post('/activar', (req, res) => {
+    const { cedula, plan } = req.body;
+
+    db.query(
+        'UPDATE usuarios SET Estado = 1, Plan = ? WHERE CedulaUsuario = ?',
+        [plan, cedula],
+        (err) => {
+            if (err) return res.status(500).json(err);
+
+            res.json({ msg: 'Usuario activado' });
+        }
+    );
+});
 
 // 🔥 ACTUALIZAR DATOS (LO CONSERVAMOS)
 router.post('/update', (req, res) => {

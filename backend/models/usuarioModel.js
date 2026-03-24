@@ -1,5 +1,6 @@
 const db = require('../config/db');
 
+// OBTENER USUARIO
 const getUserByCedula = (cedula, callback) => {
     db.query(
         'SELECT * FROM usuarios WHERE CedulaUsuario = ? LIMIT 1',
@@ -8,11 +9,25 @@ const getUserByCedula = (cedula, callback) => {
     );
 };
 
-const createUser = (data, callback) => {
+// CREAR USUARIO
+const createUser = (user, callback) => {
     db.query(
-        'INSERT INTO usuarios (CedulaUsuario, NombreCompleto, password, Estado, Telefono, Direccion) VALUES (?, ?, ?, 1, ?, ?)',
-        [data.cedula, data.nombre, data.password, data.telefono, data.direccion],
-        callback
+        'INSERT INTO usuarios (NombreCompleto, CedulaUsuario, password, Telefono, Direccion, Estado) VALUES (?, ?, ?, ?, ?, 0)',
+        [
+            user.nombre,
+            user.cedula,
+            user.password,
+            user.telefono,
+            user.direccion
+        ],
+        (err, result) => {
+            if (err){
+                console.error("ERROR SQL:", err);
+                return callback(err);
+            }
+
+            callback(null, result);
+        }
     );
 };
 

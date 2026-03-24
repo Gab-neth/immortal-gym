@@ -290,3 +290,52 @@ body::before {
 .inactivo {
     color:red;
 }
+
+/* DASHBOAAAARD  */
+
+/* MENU IZQUIERDO */
+.menu {
+    width:220px;
+    background:#111;
+    padding:20px;
+
+    display:flex;
+    flex-direction:column;
+    gap:15px;
+}
+
+/* BOTONES MENU */
+.btn-menu {
+    height:45px;
+    background:#2a2f36;
+    color:white;
+    border:1px solid #3a3f47;
+    border-radius:6px;
+    cursor:pointer;
+    transition:0.3s;
+}
+
+.btn-menu:hover {
+    background:#3a3f47;
+}
+
+/* CONTENIDO */
+.content {
+    flex:1;
+    padding:30px;
+}
+
+/* TABS */
+.tab {
+    background:#111;
+    padding:25px;
+    border-radius:12px;
+}
+
+/* PERFIL */
+.profile-card {
+    background:#1a1a1a;
+    padding:20px;
+    border-radius:10px;
+    margin-bottom:15px;
+}

@@ -27,19 +27,39 @@ function volver(){
 
 // REGISTRO
 function register(){
+
+const nombre = document.getElementById('nombre').value;
+const cedula = document.getElementById('cedula').value;
+const telefono = document.getElementById('telefono').value;
+const direccion = document.getElementById('direccion').value;
+const password = document.getElementById('password')?.value;
+
+if(!nombre || !cedula || !password){
+    alert("Completa todos los campos");
+    return;
+}
+
 fetch('http://localhost:3000/api/register',{
 method:'POST',
 headers:{'Content-Type':'application/json'},
 body:JSON.stringify({
-nombre:document.getElementById('nombre').value,
-cedula:document.getElementById('cedula').value,
-telefono:document.getElementById('telefono').value,
-direccion:document.getElementById('direccion').value
+nombre,
+cedula,
+telefono,
+direccion,
+password
 })
-}).then(r=>r.json()).then(d=>{
-alert('Usuario creado correctamente');
-window.location='login.html';
+})
+.then(r=>r.json())
+.then(d=>{
+    alert(d.msg || "Usuario creado");
+    window.location='login.html';
+})
+.catch(err=>{
+    console.error(err);
+    alert("Error en registro");
 });
+
 }
 
 // DASHBOARD
@@ -130,7 +150,21 @@ document.getElementById('desc').innerText=desc;
 }
 
 function irPago(){
-window.location="pago.html";
+
+const cedula = localStorage.getItem('cedula');
+const plan = localStorage.getItem('plan');
+
+fetch('http://localhost:3000/api/activar',{
+    method:'POST',
+    headers:{'Content-Type':'application/json'},
+    body:JSON.stringify({ cedula, plan })
+})
+.then(r=>r.json())
+.then(d=>{
+    alert("Pago realizado y plan activado 🔥");
+    window.location="dashboard.html";
+});
+
 }
 
 // CALENDARIO
@@ -161,4 +195,13 @@ renderCalendar();
 
 if(window.location.pathname.includes("dashboard.html")){
 setTimeout(renderCalendar,500);
+}
+
+function showTab(tabName){
+
+document.getElementById('datos').style.display = 'none';
+document.getElementById('planes').style.display = 'none';
+document.getElementById('calendario').style.display = 'none';
+
+document.getElementById(tabName).style.display = 'block';
 }

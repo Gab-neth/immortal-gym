@@ -12,7 +12,7 @@ app.use(express.json());
 
 app.use('/api', authRoutes);
 
-// 🔥 TEST DIRECTO SIN ROUTES
+// TEST DIRECTO SIN ROUTES
 app.get('/test-directo', (req, res) => {
     res.send("FUNCIONA APP ");
 });
