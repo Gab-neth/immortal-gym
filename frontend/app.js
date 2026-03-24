@@ -154,6 +154,9 @@ function irPago(){
 const cedula = localStorage.getItem('cedula');
 const plan = localStorage.getItem('plan');
 
+console.log("CEDULA:", cedula);
+console.log("PLAN:", plan);
+
 fetch('http://localhost:3000/api/activar',{
     method:'POST',
     headers:{'Content-Type':'application/json'},
@@ -161,8 +164,13 @@ fetch('http://localhost:3000/api/activar',{
 })
 .then(r=>r.json())
 .then(d=>{
-    alert("Pago realizado y plan activado 🔥");
+    console.log("RESPUESTA:", d);
+    alert("Plan activado correctamente");
     window.location="dashboard.html";
+})
+.catch(err=>{
+    console.error("ERROR:", err);
+    alert("Error al activar plan");
 });
 
 }
